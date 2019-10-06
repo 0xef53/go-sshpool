@@ -16,6 +16,7 @@ type SSHConfig struct {
 	User string
 	Host string
 	Port int
+	Auth []ssh.AuthMethod
 
 	// Timeout is the maximum amount of time for the TCP connection to establish.
 	Timeout time.Duration
@@ -31,6 +32,9 @@ type SSHConfig struct {
 	// ForwardAgent specifies whether the connection to the authentication agent
 	// (if any) will be forwarded to the remote machine.
 	ForwardAgent bool
+
+	HostKeyCallback func(hostname string, remote net.Addr, key ssh.PublicKey) error
+
 }
 
 // String returns a hash string generated from the SSH config parameters.
@@ -127,10 +131,15 @@ func NewSSHConn(ctx context.Context, cfg SSHConfig) (*SSHConn, error) {
 		return nil, err
 	}
 
+	if cfg.Auth == nil {
+		cfg.Auth = []ssh.AuthMethod{ssh.PublicKeys(signers...)}
+	}
+
 	clientConfig := &ssh.ClientConfig{
 		User:    cfg.User,
-		Auth:    []ssh.AuthMethod{ssh.PublicKeys(signers...)},
+		Auth:    cfg.Auth,
 		Timeout: cfg.Timeout,
+		HostKeyCallback: cfg.HostKeyCallback,
 	}
 
 	clientConn, chans, reqs, err := ssh.NewClientConn(tcpConn, addr, clientConfig)
@@ -267,3 +276,4 @@ func (c *SSHConn) Err() error {
 	defer c.mu.Unlock()
 	return c.lastErr
 }
+
