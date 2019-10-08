@@ -30,11 +30,12 @@ sshCfg := &sshpool.SSHConfig{
 	Port:        22,
 	AgentSocket: agentSocket,
 	Timeout:     30 * time.Second,
+	HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 }
 
 output, err := p.CombinedOutput(sshCfg, "uname -a ; sleep 3", nil, nil)
 if err != nil {
-	log.Fatalln("%s: %s", err, output)
+	log.Fatalf("%s: %s\n", err, output)
 }
 
 fmt.Println(string(output))
