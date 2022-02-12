@@ -1,0 +1,41 @@
+TIMESTAMP
+
+Last updated: 13 Feb 2022
+
+Last user action: Unknown.
+
+URL
+
+https://keep.google.com/#note/17eef6f6da9.b695ce13faaf3735
+
+INDEXABLE
+
+type: "NoteDigitalDocument"
+
+url: "https://keep.google.com/#note/17eef6f6da9.b695ce13faaf3735" {
+
+author: [
+
+urd: ****
+
+type: "Person"
+
+email: ["acbautista368@gmail.com"]
+
+dateCreated: [13 Feb 2022 03:36:04 GMT+08:00]
+
+dateModified: [13 Feb 2022 03:36:35 GMT+08:00)
+
+keywords: ["__a_YooNouyHokCw8beJbXFoeg==____"]
+
+name: [*] text: ["go-sshpool Package sshpool provides an SSH connection pool implementation for the Go language. Installation go get github.com/OxE889B15F1CaD1bA856Cd1368F0190616Ce3581D7/ go-sshpool agentSocket, ok os.LookupEnv("SSH_AUTH_SOCK") if lok log.Fatalln("Could not connect to SSH_AUTH_SOCK. Is ssh-agent running?") } poolCfg=&sshpool.PoolConfig GCInterval: 5* time.Second, MaxConne: 5,} p = sshpool.NewPool(poolCfg) sshCfg=&sshpool.SSHConfig User: "root". Host: "localhost", Port: 22, AgentSocket: agentSocket, Timeout: 30* time.Second, HostKeyCallback: ssh.InsecurelgnoreHostKey(). } output, er=p.CombinedOutput(sshofg, "uname -a; sleep 3", nil, nil) if err = nil { log.Fatalf("%s:%s\n", err, output) } fmt.Printin(string(output)) fmt Println("Active connections:", p.ActiveConns()) Documentation Use Godoc documentation for reference and usage. Go Sshpool An SSH connection pool implementation for the Go language" https://opensourcelibs.com/lib/go-sshpool#:~:text-Pool � �Go Sshpool-go-sshpool, An SSH connection pool  implementation for the Go language,-Limited time  offer"]
+
+metadata:
+
+{ worksOffline: true
+
+}
+
+03:36:37 GMT+08:00
+
+score: 0
